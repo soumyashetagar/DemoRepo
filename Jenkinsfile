@@ -53,14 +53,14 @@ pipeline {
         }
     }
         post{
-               /* success{
+                success{
                     //slackSend baseUrl: 'https://hooks.slack.com/services/', botUser: true, channel: 'team_phoenix', color: 'good', message: "build number is '[${BUILD_NUMBER}]'", notifyCommitters: true, username: 'phoenix', tokenCredentialId: 'slack-cred'
                     slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'good', message: "build with number '[${BUILD_NUMBER}]' IS SUCCESSFUL", tokenCredentialId: 'slack-cred', username: 'phoenix'
                         }
                 unsuccessful{
                     slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'danger', message: "build with number '[${BUILD_NUMBER}]' IS A FAILURE", tokenCredentialId: 'slack-cred', username: 'phoenix'
-                            }*/
-            withCredentials([string(credentialsId: 'slack-cred', variable: 'slack_credentials')])
+                            }
+           /* withCredentials([string(credentialsId: 'slack-cred', variable: 'slack_credentials')])
             {
             curl -H "Content-type: application/json" -X POST --data-urlencode -d 
 "payload='{
@@ -78,6 +78,6 @@ pipeline {
     }
     ]
             }'" https://hooks.slack.com/services/${slack_credentials}
-        }
+        }*/
 }
 }
