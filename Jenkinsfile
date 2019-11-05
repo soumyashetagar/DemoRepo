@@ -12,7 +12,7 @@ pipeline {
            stage("SonarQube analysis") {
             steps {
               withSonarQubeEnv('sonarqube') {
-                sh 'mvn sonar:sonar -Pprofile'
+                sh 'mvn sonar:sonar -Pprofile1'
               }
             } 
             } 
@@ -55,7 +55,8 @@ pipeline {
         
         stage("slack"){
             steps{
-       slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#phoenix_final', color: 'good', message: 'welcome', tokenCredentialId: 'slack-cred', username: 'phoenix'
+                echo '
+       slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'good', message: 'build with number \'${BUILD_NUMBER}\' IS SUCCESSFUL', tokenCredentialId: 'slack-cred', username: 'phoenix'
         }
         }
 }
