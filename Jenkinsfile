@@ -61,35 +61,5 @@ pipeline {
                     slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'danger', message: "build with number '[${BUILD_NUMBER}]' IS UNSUCCESSFUL", tokenCredentialId: 'slack-cred', username: 'phoenix'
                             }
             }
-        
-       /* post{
-             curl -H "Content-type: application/json" -X POST --data-urlencode -d 
-"payload='{
-"username": "team_phoenix",
-"attachments": [
-    {
-        "color": "danger",
-        "fields": [
-            {
-                "title": "Danger Event",
-                "value": "$SLACK_MSG",
-                "short": false
-            }
-        ]
-    },
-    {
-        "color": "warning",
-        "fields": [
-            {
-                "title": "Warning Event",
-                "value": "This is a warning",
-                "short": false
-            }
-        ]
-    }
-    ]
-        }
-    }'" https://hooks.slack.com/services/XXXXXX/XXXXXXX/XXXXXXXXXX */
-
 }
 }
