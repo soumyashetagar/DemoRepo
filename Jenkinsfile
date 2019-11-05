@@ -52,7 +52,7 @@ pipeline {
             
             }
         }
-        
+    }
         post{
                 success{
                     slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'good', message: "build with number '[${BUILD_NUMBER}]' IS SUCCESSFUL", tokenCredentialId: 'slack-cred', username: 'phoenix'
@@ -61,5 +61,4 @@ pipeline {
                     slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'danger', message: "build with number '[${BUILD_NUMBER}]' IS UNSUCCESSFUL", tokenCredentialId: 'slack-cred', username: 'phoenix'
                             }
             }
-}
 }
