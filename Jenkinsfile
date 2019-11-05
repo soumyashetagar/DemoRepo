@@ -54,8 +54,8 @@ pipeline {
     }
         post{
                 success{
-                    slackSend baseUrl: 'https://hooks.slack.com/services/', botUser: true, channel: 'team_phoenix', color: 'good', message: "build number is '[${BUILD_NUMBER}]'", notifyCommitters: true, username: 'phoenix', tokenCredentialId: 'slack-cred'
-                    //slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'good', message: "build with number '[${BUILD_NUMBER}]' IS SUCCESSFUL", tokenCredentialId: 'slack-cred', username: 'phoenix'
+                    //slackSend baseUrl: 'https://hooks.slack.com/services/', botUser: true, channel: 'team_phoenix', color: 'good', message: "build number is '[${BUILD_NUMBER}]'", notifyCommitters: true, username: 'phoenix', tokenCredentialId: 'slack-cred'
+                    slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'good', message: "build with number '[${BUILD_NUMBER}]' IS SUCCESSFUL", tokenCredentialId: 'slack-cred', username: 'phoenix'
                         }
                 unsuccessful{
                     slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'danger', message: "build with number '[${BUILD_NUMBER}]' IS A FAILURE", tokenCredentialId: 'slack-cred', username: 'phoenix'
