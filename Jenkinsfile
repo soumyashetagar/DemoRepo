@@ -55,11 +55,15 @@ pipeline {
         
         stage("slack"){
             steps{
+                success{
                 echo 'successful'
        slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'good', message: "build with number '[${BUILD_NUMBER}]' IS SUCCESSFUL", tokenCredentialId: 'slack-cred', username: 'phoenix'
-                echo 'unsuccessful'
+                    {
+                        unsuccess{
+                            echo 'unsuccessful'
        slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'team_phoenix', color: 'danger', message: "build with number '[${BUILD_NUMBER}]' IS non-SUCCESSFUL", tokenCredentialId: 'slack-cred', username: 'phoenix'
         }
+                    }
         }
         
        /* post{
