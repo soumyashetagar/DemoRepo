@@ -23,7 +23,7 @@ pipeline {
                 waitForQualityGate abortPipeline: true //waiting for a task to be completed
               }
             }
-        
+        }
        }
   stage("nexus") {
             steps {
