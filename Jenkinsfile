@@ -13,6 +13,7 @@ pipeline {
             steps {
               withSonarQubeEnv('sonarqube') {
                 sh 'mvn sonar:sonar -Pprofile1'
+                  input('Do you want to proceed?')
               }
             } 
             } 
