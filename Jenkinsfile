@@ -54,13 +54,7 @@ pipeline {
             
 post {
     always {
-           jiraSendDeploymentInfo environmentId: 'jiradev', environmentName: 'jiraenvdev', environmentType: 'development', site: 'varshi26.atlassian.net'
-            def issue = [fields: [ project: [key: 'TESTPRO'],
-                       summary: 'New JIRA Created from Jenkins.',
-                       description: 'New JIRA Created from Jenkins.',
-                       issuetype: [name: 'Task']]]
-def newIssue = jiraNewIssue issue: issue, site: 'varshi26.atlassian.net'
-echo newIssue.data.key   
+           jiraSendDeploymentInfo environmentId: 'jiradev', environmentName: 'jiraenvdev', environmentType: 'development', site: 'varshi26.atlassian.net'        
     }
    }
         }
