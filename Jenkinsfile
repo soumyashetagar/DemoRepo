@@ -51,6 +51,12 @@ pipeline {
             //sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /opt/playbooks/copyfile.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
             
             }
+            
+post {
+    always {
+           jiraSendDeploymentInfo environmentId: 'jiradev', environmentName: 'jiraenvdev', environmentType: 'development', site: 'varshi26.atlassian.net'
+       }
+   }
         }
     }
         post{
