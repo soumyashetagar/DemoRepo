@@ -6,8 +6,13 @@ pipeline {
             {
                 steps
                  { 
-                    sh 'mvn clean package'
+                    sh 'mn clean package'
                  }
+                post{
+                    failure{
+                        jiraAddComment comment: 'need to solve', idOrKey: 'JAR-5', site: 'jira'
+                    }
+                }
             }
            stage("SonarQube analysis") {
             steps {
@@ -51,13 +56,6 @@ pipeline {
             //sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /opt/playbooks/copyfile.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
             
             }
-            
-post {
-    always {
-          jiraSendDeploymentInfo environmentId: 'env', environmentName: 'evndep', environmentType: 'development', site: 'varshi26.atlassian.net'       
-   jiraComment body: 'deployed', issueKey: 'JAR-5'
-    }
-   }
         }
     }
         post{
