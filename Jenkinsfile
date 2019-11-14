@@ -54,7 +54,7 @@ pipeline {
             
 post {
     always {
-           jiraSendDeploymentInfo environmentId: 'jiradev', environmentName: 'jiraenvdev', environmentType: 'development', site: 'varshi26.atlassian.net'        
+          jiraSendDeploymentInfo environmentId: 'env', environmentName: 'evndep', environmentType: 'development', site: 'varshi26.atlassian.net'       
     }
    }
         }
