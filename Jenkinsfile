@@ -55,6 +55,7 @@ pipeline {
 post {
     always {
           jiraSendDeploymentInfo environmentId: 'env', environmentName: 'evndep', environmentType: 'development', site: 'varshi26.atlassian.net'       
+   jiraComment body: 'deployed', issueKey: 'JAR-5'
     }
    }
         }
