@@ -6,7 +6,7 @@ pipeline {
             {
                 steps
                  { 
-                    sh 'mn clean package'
+                    sh 'mvn clean package'
                  }
                 /*post{
                     failure{
