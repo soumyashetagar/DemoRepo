@@ -10,7 +10,10 @@ pipeline {
                  }
                 post{
                     failure{
-                      sh 'curl -D -u username:password -X POST --data {"fields":{"project":{"key":"FRY"},"summary": "bug creation","description"; "creating an issuefrom jenkins","issuetype": {"name": "Bug"}}} -H https://varshi26.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FRI&view=planning'
+             withCredentials([usernamePassword(credentialsId: 'jira', passwordVariable: 'password', usernameVariable:'username')]) {
+
+                 sh 'curl -D -u ${username}:${password} -X POST --data {"fields":{"project":{"key":"FRY"},"summary": "bug creation","description"; "creating an issuefrom jenkins","issuetype": {"name": "Bug"}}} -H https://varshi26.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FRI&view=planning'
+                    }
                     }
                 }
             }
