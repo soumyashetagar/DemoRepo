@@ -10,7 +10,7 @@ pipeline {
                  }
                 post{
                     failure{
-                       curl -D -u username:password -X POST --data '{"fields":{"project":{"key":"FRY"},"summary": "bug creation","description"; "creating an issuefrom jenkins","issuetype": {"name": "Bug"}}}' -H https://varshi26.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FRI&view=planning
+                      sh 'curl -D -u username:password -X POST --data {"fields":{"project":{"key":"FRY"},"summary": "bug creation","description"; "creating an issuefrom jenkins","issuetype": {"name": "Bug"}}} -H https://varshi26.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FRI&view=planning'
                     }
                 }
             }
