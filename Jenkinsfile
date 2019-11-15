@@ -12,7 +12,7 @@ pipeline {
                     failure{
              withCredentials([usernamePassword(credentialsId: 'jira', passwordVariable: 'password', usernameVariable:'username')]) {
 
-                 sh 'curl -D --user ${username}:${password} -X POST --data {"fields":{"project":{"key":"FRI"},"summary": "bug creation","description"; "creating an issuefrom jenkins","issuetype": {"name": "Bug"}}} -H https://varshi26.atlassian.net/'
+                 sh 'curl -D -u ${username}:${password} -X POST --data {"fields":{"project":{"key":"FRI"},"summary": "bug creation","description"; "creating an issuefrom jenkins","issuetype": {"name": "Bug"}}} -H https://varshi26.atlassian.net/'
                     }
                     }
                 }
