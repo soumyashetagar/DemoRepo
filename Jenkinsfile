@@ -54,7 +54,7 @@ pipeline {
         stage("Deploy to Tomcat"){
             steps{
                 withCredentials([string(credentialsId: 'ansible_credentials', variable: 'password')]){
-                    sh 'sshpass -p ${password} ssh -o StrictHostKeyChecking=no ansadmin@172.31.10.200 -C \"ansible-playbook /opt/playbooks/download.yml\"'
+                    sh 'sshpass -p ${password} ssh -o StrictHostKeyChecking=no ansadmin@172.31.10.200 -C \"ansible-playbook /opt/playbooks/downn_test.yml\"'
                 }
             //sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /opt/playbooks/copyfile.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
             
